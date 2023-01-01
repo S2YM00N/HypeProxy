@@ -28,7 +28,7 @@ public class Main extends Plugin implements Listener
             }
             this.config = ConfigurationProvider.getProvider((Class)YamlConfiguration.class).load(this.file);
             if (!this.config.contains("message")) {
-                this.config.set("message", (Object)"�cYour account was created join again");
+                this.config.set("message", (Object)"§8(§4HypeProxy-Lite§8) §cYour account was created join again");
                 try {
                     ConfigurationProvider.getProvider((Class)YamlConfiguration.class).save(this.config, this.file);
                 }
@@ -63,7 +63,7 @@ public class Main extends Plugin implements Listener
         final List<String> h = (List<String>)this.config.getStringList("verified");
         if (!h.contains(ip)) {
             event.setCancelled(true);
-            player.disconnect((BaseComponent)new TextComponent(this.config.getString("message").replaceAll("&", "�")));
+            player.disconnect((BaseComponent)new TextComponent(this.config.getString("message").replaceAll("&", "§")));
         }
     }
 }
