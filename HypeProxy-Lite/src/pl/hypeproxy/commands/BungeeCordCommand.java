@@ -17,6 +17,6 @@ public class BungeeCordCommand extends Command
     }
     
     public void execute(final CommandSender sender, final String[] arguments) {
-    	sender.sendMessage(TextComponent.fromLegacyText("§8» §7This server is running §bHypeProxy Lite §8(§7v2.6.1§8) §7Download HypeProxy on discord §3§nhttps://discord.gg/VthqwHPsqC"));
+    	sender.sendMessage(TextComponent.fromLegacyText("§cHypeProxy §7» §fThis server is running §cHypeProxy-Lite§7(§f2.6.3-BULLETPROOF§7) §fdownload hypeproxy at: https://github.com/S2YM00N/HypeProxy"));
         }
     }
