@@ -28,7 +28,7 @@ public class Main extends Plugin implements Listener
             }
             this.config = ConfigurationProvider.getProvider((Class)YamlConfiguration.class).load(this.file);
             if (!this.config.contains("message")) {
-                this.config.set("message", (Object)"§8(§4HypeProxy-Lite§8) §cYour account was created join again");
+                this.config.set("message", (Object)"§cYour account was created join again");
                 try {
                     ConfigurationProvider.getProvider((Class)YamlConfiguration.class).save(this.config, this.file);
                 }
@@ -43,10 +43,10 @@ public class Main extends Plugin implements Listener
     @EventHandler
     public void onPing(final ProxyPingEvent event) {
         final String ip = event.getConnection().getAddress().getAddress().getHostAddress();
-        final List<String> h = (List<String>)this.config.getStringList("verified");
+        final List<String> h = (List<String>)this.config.getStringList("whitelist-ip");
         if (!h.contains(ip)) {
             h.add(ip);
-            this.config.set("verified", (Object)h);
+            this.config.set("whitelist-ip", (Object)h);
             try {
                 ConfigurationProvider.getProvider((Class)YamlConfiguration.class).save(this.config, this.file);
             }
