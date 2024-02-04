@@ -1,1 +1,2 @@
-Its free version of hypeproxy i give it because its just verification nothing more
+outed version of hypeproxy. Use botguard for better performence and stability https://lionsquad.nl
+I DONT RECOMMEND USING THIS HYPEPROXY ITS JUST VERIFICATION AND NOTHING MORE
