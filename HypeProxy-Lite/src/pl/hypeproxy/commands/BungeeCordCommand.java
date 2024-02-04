@@ -17,6 +17,6 @@ public class BungeeCordCommand extends Command
     }
     
     public void execute(final CommandSender sender, final String[] arguments) {
-    	sender.sendMessage(TextComponent.fromLegacyText("§cHypeProxy §7» §fThis server is running §cHypeProxy-Lite§7(§f2.6.3-BULLETPROOF§7) §fdownload hypeproxy at: https://github.com/S2YM00N/HypeProxy"));
+    	sender.sendMessage(TextComponent.fromLegacyText("§cHypeProxy §7» §fThis server is running §cHypeProxy-Lite§7(§f2.6.4-BULLETPROOF§7) §fdownload hypeproxy at: https://github.com/S2YM00N/HypeProxy"));
         }
     }
