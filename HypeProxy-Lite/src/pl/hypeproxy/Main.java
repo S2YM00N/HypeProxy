@@ -15,38 +15,40 @@ public class Main extends Plugin implements Listener
     Configuration config;
     File file;
     
+    @Override
     public void onEnable() {
+        getLogger().info("HypeProxy-lite plugin enabled.");
         BungeeCordCommand.register(this);
-        this.getProxy().getPluginManager().registerListener((Plugin)this, (Listener)this);
+        getProxy().getPluginManager().registerListener(this, this);
         try {
-            if (!this.getDataFolder().exists()) {
-                this.getDataFolder().mkdir();
+            if (!getDataFolder().exists()) {
+                getDataFolder().mkdir();
             }
-            this.file = new File(this.getDataFolder().getPath(), "settings.yml");
-            if (!this.file.exists()) {
-                this.file.createNewFile();
+            file = new File(getDataFolder(), "settings.yml");
+            if (!file.exists()) {
+                file.createNewFile();
             }
-            this.config = ConfigurationProvider.getProvider((Class)YamlConfiguration.class).load(this.file);
-            if (!this.config.contains("message")) {
-                this.config.set("message", (Object)"§cYour account was created join again");
+            config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(file);
+            if (!config.contains("message")) {
+                config.set("message", "&cYour account was created, please join again");
                 try {
-                    ConfigurationProvider.getProvider((Class)YamlConfiguration.class).save(this.config, this.file);
-                }
-                catch (IOException e) {
+                    ConfigurationProvider.getProvider(YamlConfiguration.class).save(config, file);
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
-        catch (IOException ex) {}
     }
     
     @EventHandler
     public void onPing(final ProxyPingEvent event) {
         final String ip = event.getConnection().getAddress().getAddress().getHostAddress();
-        final List<String> h = (List<String>)this.config.getStringList("whitelist-ip");
+        final List<String> h = (List<String>)this.config.getStringList("verified");
         if (!h.contains(ip)) {
             h.add(ip);
-            this.config.set("whitelist-ip", (Object)h);
+            this.config.set("verified", (Object)h);
             try {
                 ConfigurationProvider.getProvider((Class)YamlConfiguration.class).save(this.config, this.file);
             }
